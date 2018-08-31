@@ -1,0 +1,24 @@
+<h3>以下の内容で投稿する。</h3>
+
+<%= form_with(model: @content, url: contents_path, local: true) do |form| %>
+  <%= form.hidden_field :title_id %>
+  <%= form.hidden_field :title_title %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
+  <div class="panel panel-info">
+  <div class="panel-body">
+  <p>カテゴリ:<%= @content.category_id %>　<%= Category.find(@content.title_id).name %></p>
+  <p>本文:<%= markdown(@content.content) %></p>
+  <%= image_tag(@content.image.url) if @content.image.url %>
+  </div>
+  </div>
+  <%= form.submit  "投稿" %>
+<% end %>
+
+<%= form_with(model: @content, url: new_content_path, local: true, method: 'get') do |form| %>
+    <%= form.hidden_field :category_id %>
+    <%= form.hidden_field :title_title %>
+    <%= form.hidden_field :content %>
+    <%= form.hidden_field :image_cache %>
+    <%= form.submit "キャンセル", name: 'back' %>
+<% end %>

@@ -1,35 +1,24 @@
-<%= form_with(model: content, local: true) do |form| %>
-  <% if content.errors.any? %>
+<%= form_with(model: @content, local: true) do |form| %>
+  <% if @content.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(content.errors.count, "error") %> prohibited this content from being saved:</h2>
-
+      <h2 class="alert alert-danger"><%= @content.errors.count %>件のエラーがあります。</h2>
       <ul>
-      <% content.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @content.errors.full_messages.each do |msg| %>
+        <li class="alert alert-danger"><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :id %>
-    <%= form.number_field :id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <!-- 確認画面から新規作成画面に戻った時に、 -->
-    <!-- アップロードした画像を表示させるための記述 -->
-    <%= image_tag(@content.image.url) if @content.image.url %>
-    <%= form.file_field :image, id: :content_image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <p><%= form.label "タイトル一覧" %></p>
+    <p><%= form.collection_select :id, title.all.order(title: :asc), :id, :title %>
+      <%= link_to 'タイトル管理', titles_path %></p>
+    <p><%= form.label "本文" %></p>
+    <p><%= form.text_area :content, :size=>"102x10" %></p>
+    <p><%= image_tag(@content.image.url) if @content.image.url %></p>
+    <p><%= form.label "画像アップロード" %></p>
+    <p><%= form.file_field :image, id: :blog_image %></p>
+    <p><%= form.submit "投稿", class: "btn btn-warning btn-lg" %></p>
 <% end %>
+
+<p  class="text-center"><%= link_to 'コラム一覧に戻る', blogs_path %></p>
