@@ -2,7 +2,8 @@ class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
 
   def index
-    @contents = Content.all
+    @contents = Content.all.order(created_at: :desc)
+    @titles = Title.all.order(title: :asc)
   end
 
   def show
@@ -25,8 +26,9 @@ class ContentsController < ApplicationController
   end  
 
   def create
-    @content = Content.new(content_params)
-
+    @content = Content.create(content_params)
+    #@content.user_id = current_user.id
+    
     respond_to do |format|
       if @content.save
         format.html { redirect_to @content, notice: 'Content was successfully created.' }
@@ -63,6 +65,6 @@ class ContentsController < ApplicationController
     end
 
     def content_params
-      params.require(:content).permit(:id, :content, :image, :image_cache)
+      params.require(:content).permit(:id, :content, :image, :image_cache, :title_id)
     end
 end

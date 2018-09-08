@@ -1,14 +1,11 @@
-<p id="notice"><%= notice %></p>
-
+<p><%= notice %></p>
+    <h1><%= @title.title %></h1>
 <p>
-  <strong>Id:</strong>
-  <%= @title.id %>
+    <% @titles.each do |title| %>
+        <% @contents.where(title_id: title).each do |content| %>
+            <p><%= content.content %></p>
+            <p><img src="<%= content.image %>"></p>
+        <% end %>
+    <% end %>
 </p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @title.title %>
-</p>
-
-<%= link_to 'Edit', edit_title_path(@title) %> |
-<%= link_to 'Back', titles_path %>
+<p><%= link_to '説明文追加', new_content_path %></p>

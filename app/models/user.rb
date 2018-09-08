@@ -8,5 +8,9 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
   
   before_validation { email.downcase! }
+  
+  #has_many :contents
+  #has_many :titles
+  #has_many :tags
 
 end

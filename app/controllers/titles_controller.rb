@@ -10,10 +10,13 @@ class TitlesController < ApplicationController
   # GET /titles/1
   # GET /titles/1.json
   def show
+    @titles = Title.all
+    @contents = Content.all
   end
 
   # GET /titles/new
   def new
+    @titles = Title.all
     @title = Title.new
   end
 
@@ -29,10 +32,8 @@ class TitlesController < ApplicationController
     respond_to do |format|
       if @title.save
         format.html { redirect_to @title, notice: 'Title was successfully created.' }
-        format.json { render :show, status: :created, location: @title }
       else
         format.html { render :new }
-        format.json { render json: @title.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +44,8 @@ class TitlesController < ApplicationController
     respond_to do |format|
       if @title.update(title_params)
         format.html { redirect_to @title, notice: 'Title was successfully updated.' }
-        format.json { render :show, status: :ok, location: @title }
       else
         format.html { render :edit }
-        format.json { render json: @title.errors, status: :unprocessable_entity }
       end
     end
   end
