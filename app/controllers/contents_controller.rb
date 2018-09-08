@@ -31,7 +31,7 @@ class ContentsController < ApplicationController
     
     respond_to do |format|
       if @content.save
-        format.html { redirect_to @title_show, notice: 'Content was successfully created.' }
+        format.html { redirect_to @content, notice: 'Content was successfully created.' }
       else
         format.html { render :new }
       end

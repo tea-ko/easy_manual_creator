@@ -1,2 +1,11 @@
 <p><%= notice %></p>
+    <h1><%= @title.title %></h1>
+<p>
+    <% @titles.each do |title| %>
+        <% @contents.where(title_id: title).each do |content| %>
+            <p><%= content.content %></p>
+            <p><img src="<%= content.image %>"></p>
+        <% end %>
+    <% end %>
+</p>
 <p><%= link_to '説明文追加', new_content_path %></p>
