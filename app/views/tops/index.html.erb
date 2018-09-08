@@ -1,48 +1,107 @@
-<h1>Easy Manual Creator</h1>
-<p>簡単マニュアル作成ツール</p>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <%= link_to "Easy Manual Creator", root_path, class: 'navbar-brand' %>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to 'Home', root_path %>
+        </li>
+          <% if logged_in? %>
+            <li class="nav-item">
+              <%= link_to "マイページ", user_path(current_user.id) %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+            </li>            
+          <% else %>
+            <li class="nav-item">  
+              <%= link_to "ユーザー登録", new_user_path %>
+            </li>
+            <li class="nav-item">  
+              <%= link_to "ログイン", new_session_path %>
+            </li>      
+          <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<img src="assets/book.png">
+<!-- Page Header -->
+<header class="masthead" style="background-image: url(<%= asset_path "book.png" %>)">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Easy Manual Creator</h1>
+          <span class="subheading">簡単マニュアル作成ツール</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-
-<h3>About it</h3>
-<p>
-    このEasy Manual Creatorは、誰でも簡単にWEBマニュアルが作成できるアプリです。<br>
-    WEBサイト作成のスキルや知識がなくても、画像付きでわかりやすいWEBマニュアルが簡単に作れます。<br>
-    急な業務立ち上げや小規模業務で本格的なマニュアルサイトを作成する稼働が取れない場合でも、現場スタッフみんなで業務をしながら時間をかけずに作り上げることができます。
-</p>
-
-<h3>How to Create</h3>
-<p>
-    <ol>
-        <li>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="post-preview">
+          <h2 class="post-title">
+              About it
+          </h2>
+          <h3 class="post-subtitle">
+            このEasy Manual Creatorは、誰でも簡単にWEBマニュアルが作成できるアプリです。<br>
+            WEBサイト作成のスキルや知識がなくても、画像付きでわかりやすいWEBマニュアルが簡単に作れます。<br>
+            急な業務立ち上げや小規模業務で本格的なマニュアルサイトを作成する稼働が取れない場合でも、現場スタッフみんなで業務をしながら時間をかけずに作り上げることができます。
+          </h3>
+      </div>
+      <hr>
+      <!-- Pager -->
+      <div class="clearfix">
+        <h2>How to Creat</h2>
+          <ol>
+          <li>
             <p>ユーザ登録とログイン</p>
             作成者はユーザー登録が必要です。<br>
             ページ上部の「ユーザー登録」から必要情報を入力してユーザー登録をしてください。<br>
             登録したメールアドレスとパスワードでログインするとマニュアル作成ができるようになります。
-        </li>
-        <br>
-        <li>
+          </li>
+          <br>
+          <li>
             <p>カテゴリを作成</p>
-            マニュアルの大項目を設定します。
-        </li>
-        <br>
-        <li>
+            マニュアルの中にカテゴリ名を設定します。
+          </li>
+          <br>
+          <li>
             <p>タイトルを作成</p>
             カテゴリの中に、マニュアルのタイトルを設定します。
-        </li>
-        <br>
-        <li>
+          </li>
+          <br>
+          <li>
             <p>手順を作成</p>
             タイトルの中に手順を書きます。<br>
             画像と説明文を入れてください。
-        </li>
-        <br>
-        <li>
+          </li>
+          <br>
+          <li>
             <p>次の手順を追加</p>
             １行程ずつ一つの画像と説明文を追加していきます。<br>
-            -１つのタイトルに追加できる工程数に上限はありません。<br>
-            -画像が不要な場合は説明文のみの追加も可能です。
-        </li>
-    </ol>
-</p>
+            ※１つのタイトルに追加できる工程数に上限はありません。<br>
+            ※画像が不要な場合は説明文のみの追加も可能です。
+          </li>
+          </ol>
+      </div>
+    </div>
+  </div>
+</div>
 
+<hr>
+
+<!-- Footer -->
+<footer>
+    <p class="copyright text-muted">Copyright &copy; NTT Com CHEO Corp.</p>
+</footer>
