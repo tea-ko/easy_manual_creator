@@ -1,4 +1,4 @@
-<%= form_with(model: @content, local: true) do |form| %>
+<%= form_with(model: [@title,@content], local: true) do |form| %>
   <% if @content.errors.any? %>
     <div id="error_explanation">
       <h2 class="alert alert-danger"><%= @content.errors.count %>件のエラーがあります。</h2>
@@ -9,14 +9,14 @@
       </ul>
     </div>
   <% end %>
-
-    <p><%= form.label "タイトル一覧" %></p>
-    <p><%= form.collection_select :title_id, Title.all, :id, :title %>
-      <%= link_to 'タイトル管理', titles_path %></p>
+  <div class="field">
     <p><%= form.label "本文" %></p>
-    <p><%= form.text_area :content, :size=>"102x10" %></p>
+    <p><%= form.text_area :content, :size=>"40x10" %></p>
     <p><%= image_tag(@content.image.url) if @content.image.url %></p>
     <p><%= form.label "画像アップロード" %></p>
-    <p><%= form.file_field :image, id: :blog_image %></p>
+    <p><%= form.file_field :image, id: :title_image %></p>
+  </div>  
+  <div class="actions">
     <p><%= form.submit "投稿", class: "btn btn-warning btn-lg" %></p>
+  </div>
 <% end %>
