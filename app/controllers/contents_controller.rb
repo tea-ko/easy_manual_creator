@@ -26,12 +26,13 @@ class ContentsController < ApplicationController
   end  
 
   def create
-    @content = Content.create(content_params)
+    @title = Title.find(params[:title_id])
+    @content = @title.contents.build(content_params)
     #@content.user_id = current_user.id
     
     respond_to do |format|
       if @content.save
-        format.html { redirect_to @content, notice: 'Content was successfully created.' }
+        format.html { redirect_to @content, notice: '手順の説明が追加されました' }
       else
         format.html { render :new }
       end
@@ -41,7 +42,7 @@ class ContentsController < ApplicationController
   def update
     respond_to do |format|
       if @content.update(content_params)
-        format.html { redirect_to @content, notice: 'Content was successfully updated.' }
+        format.html { redirect_to @content, notice: '手順の説明が更新されました' }
         format.json { render :show, status: :ok, location: @content }
       else
         format.html { render :edit }

@@ -1,0 +1,10 @@
+<ol>
+  <% contents.each do |content| %>
+    <% if content.id.present? %>
+      <li>
+        <p><%= content.content %></p>
+        <p><img src="<%= content.image %>"></p>
+      </li>
+    <% end %>
+  <% end %>
+</ol>
