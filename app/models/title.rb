@@ -1,5 +1,5 @@
 class Title < ApplicationRecord
-   has_many :contents
+   has_many :contents, dependent: :destroy
    #belongs_to :user
-   #belongs_to :tag_list
+   belongs_to :category
 end

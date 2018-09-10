@@ -4,6 +4,10 @@
       <li>
         <p><%= content.content %></p>
         <p><img src="<%= content.image %>"></p>
+        <p>
+          <%= link_to '詳細', content %>
+          <%= link_to '編集', edit_content_path(content) %>
+        </p>
       </li>
     <% end %>
   <% end %>

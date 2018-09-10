@@ -19,7 +19,8 @@ class TitlesController < ApplicationController
   end
 
   def create
-    @title = Title.new(title_params)
+    @category = Category.find(params[:category_id])
+    @title = @category.titles.build(title_params)
 
     respond_to do |format|
       if @title.save
@@ -43,7 +44,7 @@ class TitlesController < ApplicationController
   def destroy
     @title.destroy
     respond_to do |format|
-      format.html { redirect_to titles_url, notice: 'タイトルが削除されました' }
+      format.html { redirect_to titles_url, notice: 'タイトルと中の説明文が削除されました' }
       format.json { head :no_content }
     end
   end
@@ -56,6 +57,6 @@ class TitlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def title_params
-      params.require(:title).permit(:id, :title)
+      params.require(:title).permit(:id, :title, :category_id)
     end
 end

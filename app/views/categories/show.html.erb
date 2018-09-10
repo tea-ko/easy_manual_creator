@@ -1,0 +1,15 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="blog-text">
+    <p><%= @category.name %></p>
+  </div>
+  <hr>
+  <div id="titles_area">
+    <%= render partial: 'titles/index', locals: { titles: @titles, category: @category } %>
+  </div> 
+  <hr>
+  <%= render partial: 'titles/form', locals: { title: @title, category: @category } %>
+
+  <%= link_to 'カテゴリ名を編集', edit_category_path(@category) %> |
+  <%= link_to 'カテゴリ一覧へ戻る', categories_path %>
+</div> 

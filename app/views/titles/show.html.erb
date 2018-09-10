@@ -1,17 +1,13 @@
 <p><%= notice %></p>
 <h1><%= @title.title %></h1>
-
 <hr>
 以下の手順で作業してください。
-<div id="comments_area">
-<!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+<div id="contents_area">
 <%= render partial: 'contents/index', locals: { contents: @contents, title: @title } %>
 </div>
-
 <hr>
-<!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
 <h3>▼︎説明の追加はこちら</h3>
-<%= render partial: 'contents/form', locals: { comment: @content, title: @title } %>
+<%= render partial: 'contents/form', locals: { content: @content, title: @title } %>
 
 <%= link_to 'タイトルを編集する', edit_title_path(@title) %> |
 <%= link_to 'タイトル一覧へ戻る', titles_path %>
