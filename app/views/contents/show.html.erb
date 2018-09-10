@@ -1,19 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Id:</strong>
-  <%= @content.id %>
-</p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>説明文:</strong>
   <%= @content.content %>
 </p>
 
 <p>
-  <strong>Image:</strong>
+  <strong>説明画像:</strong>
   <%= image_tag @content.image.url %>
 </p>
-
-<%= link_to 'Edit', edit_content_path(@content) %> |
-<%= link_to 'Back', contents_path %>
+<%= link_to '削除', @content, method: :delete, data: { confirm: 'この説明文と画像を削除してよろしいですか？' } %>
+<%= link_to '編集', edit_content_path(@content) %> |
+<%= link_to '戻る', titles_path %>

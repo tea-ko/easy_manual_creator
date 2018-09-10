@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show, :edit]
   resources :contents
-  resources :titles do
-    resources :contents
+  resources :titles
+  resources :categories do
+    resources :titles do
+      resources :contents
+    end
   end
 end

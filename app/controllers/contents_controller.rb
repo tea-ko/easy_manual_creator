@@ -2,8 +2,7 @@ class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
 
   def index
-    @contents = Content.all.order(created_at: :desc)
-    @titles = Title.all.order(title: :asc)
+    @contents = Content.all
   end
 
   def show
@@ -26,7 +25,8 @@ class ContentsController < ApplicationController
   end  
 
   def create
-    @title = Title.find(params[:title_id])
+    @content = Content.all
+    @title = Title.find(content_params[:title_id])
     @content = @title.contents.build(content_params)
     #@content.user_id = current_user.id
     
@@ -54,7 +54,7 @@ class ContentsController < ApplicationController
   def destroy
     @content.destroy
     respond_to do |format|
-      format.html { redirect_to contents_url, notice: 'Content was successfully destroyed.' }
+      format.html { redirect_to contents_url, notice: '説明文と画像が削除されました。' }
       format.json { head :no_content }
     end
   end

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>カテゴリ一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= link_to '詳細', category %></td>
+        <td><%= link_to '編集', edit_category_path(category) %></td>
+        <td><%= link_to '削除', category, method: :delete, data: { confirm: 'カテゴリと中のマニュアルが全て削除されます。本当に削除してよろしいですか？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新しいカテゴリを作成する', new_category_path %>
