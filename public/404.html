@@ -10,6 +10,9 @@
   p{
     text-align: center;
   }
+  p.resizeimage img {
+    width: 50%;
+  }
   img{
     display: block;
     margin: 0 auto;
@@ -19,15 +22,9 @@
 
 <body>
   <!-- This file lives in public/404.html -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="error">
-          <img src="/404error.png">
-          <p>お探しのページは見つかりません。</p>
-        </div>
-      </div>
-    </div>
+  <div class="error">
+    <p>お探しのページは見つかりません。</p>
+    <p class="resizeimage"><img src="/404error.png"></p>
   </div>
 </body>
 </html>
