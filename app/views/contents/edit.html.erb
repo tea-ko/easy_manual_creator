@@ -12,6 +12,16 @@
     </div>
   </div>
 </header>
-<%= render 'form', content: @content %>
 
-<%= link_to '◀︎戻る', :back %>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="post-preview">
+        <%= render 'form', content: @content %>
+        <h4 class="post-title">
+        <%= link_to '◀︎戻る', :back %>
+      </div>
+    </div>
+  </div>
+</div>
