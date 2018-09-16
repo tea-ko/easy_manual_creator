@@ -1,5 +1,6 @@
 class TitlesController < ApplicationController
   before_action :set_title, only: [:show, :edit, :update, :destroy]
+  before_action :require_loggin, only: [:new, :edit, :create, :update, :destroy]
 
   def index
     @titles = Title.all
@@ -58,5 +59,11 @@ class TitlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def title_params
       params.require(:title).permit(:id, :title, :category_id)
+    end
+    
+    def require_loggin
+      unless logged_in? then
+        render new_session_path
+      end
     end
 end

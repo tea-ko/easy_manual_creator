@@ -1,20 +1,13 @@
-<table>
-  <thead>
-    <tr>
-      <th>タイトル名</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% titles.each do |title| %>
-      <% if title.id.present? %>
-            <tr>
-              <td><%= title.title %></td>
-              <td><%= link_to '詳細', title %></td>
-              <td><%= link_to '編集', edit_title_path(title) %></td>
-              <td><%= link_to '削除', title, method: :delete, data: { confirm: 'このタイトルを削除すると中の説明文と画像も全て削除されます。削除してよろしいですか？' } %></td>
-            </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
+<% titles.each do |title| %>
+  <% if title.id.present? %>
+    <h3 class="post-subtitle">
+      <%= title.title %>
+    </h3>
+    <%= link_to '詳細', title %>
+    <%= link_to '編集', edit_title_path(title) %>
+    <button class="btn btn-primary float-right">
+      <%= link_to '削除', title, method: :delete, data: { confirm: 'このタイトルを削除すると中の説明文と画像も全て削除されます。削除してよろしいですか？' } %>
+    </button>
+  <% end %>
+  <hr>
+<% end %>

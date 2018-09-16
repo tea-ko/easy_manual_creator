@@ -1,5 +1,6 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
+  before_action :require_loggin, only: [:new, :edit, :create, :update, :destroy]
 
   def index
     @contents = Content.all
@@ -32,7 +33,7 @@ class ContentsController < ApplicationController
     
     respond_to do |format|
       if @content.save
-        format.html { redirect_to @content, notice: '手順の説明が追加されました' }
+        format.html { redirect_to @title, notice: '手順の説明が追加されました' }
       else
         format.html { render :new }
       end
@@ -40,13 +41,14 @@ class ContentsController < ApplicationController
   end
 
   def update
+    @title = Title.find(content_params[:title_id])
     respond_to do |format|
       if @content.update(content_params)
-        format.html { redirect_to @content, notice: '手順の説明が更新されました' }
+        format.html { redirect_to @title, notice: '手順の説明が更新されました' }
         format.json { render :show, status: :ok, location: @content }
       else
         format.html { render :edit }
-        format.json { render json: @content.errors, status: :unprocessable_entity }
+        format.json { render json: @title.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -68,4 +70,10 @@ class ContentsController < ApplicationController
     def content_params
       params.require(:content).permit(:id, :content, :image, :image_cache, :title_id)
     end
+    
+    def require_loggin
+      unless logged_in? then
+        render new_session_path
+      end
+    end    
 end

@@ -1,13 +1,34 @@
-<p><%= notice %></p>
-<h1><%= @title.title %></h1>
-<hr>
-以下の手順で作業してください。
-<div id="contents_area">
-<%= render partial: 'contents/index', locals: { contents: @contents, title: @title } %>
-</div>
-<hr>
-<h3>▼︎説明の追加はこちら</h3>
-<%= render partial: 'contents/form', locals: { content: @content, title: @title } %>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url(<%= asset_path "book.png" %>)">
+  <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1><%= @title.title %></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-<%= link_to 'タイトルを編集する', edit_title_path(@title) %> |
-<%= link_to 'タイトル一覧へ戻る', titles_path %>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="post-preview">
+        <p><%= notice %></p>
+        <h4>▼︎作業手順</h4>
+        <div id="contents_area">
+          <%= render partial: 'contents/index', locals: { contents: @contents, title: @title } %>
+        </div>
+        <hr>
+        <h4>▼︎説明の追加はこちら</h4>
+        <%= render partial: 'contents/form', locals: { content: @content, title: @title } %>
+        <hr>
+        <h4><%= link_to '▶︎タイトルを編集する', edit_title_path(@title) %></h4>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,13 +1,13 @@
 <ol>
   <% contents.each do |content| %>
     <% if content.id.present? %>
+      <hr>
       <li>
-        <p><%= content.content %></p>
-        <p><img src="<%= content.image %>"></p>
-        <p>
-          <%= link_to '詳細', content %>
+        <%= content.content %>
+        <div class="float-right">
           <%= link_to '編集', edit_content_path(content) %>
-        </p>
+        </div>
+        <p><img src="<%= content.image %>"></p>
       </li>
     <% end %>
   <% end %>
