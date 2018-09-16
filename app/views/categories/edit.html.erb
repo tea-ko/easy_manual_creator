@@ -1,6 +1,30 @@
-<h1>Editing Category</h1>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url(<%= asset_path "book.png" %>)">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>カテゴリ名の編集</h1>
+          <span class="subheading"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-<%= render 'form', category: @category %>
-
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="post-preview">
+        <h2 class="post-title">
+        <p><%= render 'form', category: @category %></p>
+        <h4><%= link_to '◀︎カテゴリ一覧へ戻る', categories_path %></h4>
+      </div>
+    </div>
+  </div>
+ </div>
+        
+        
+        

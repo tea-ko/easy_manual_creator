@@ -12,11 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
     <%= form.text_area :name %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <p><%= form.submit "登録", class: "btn btn-warning btn-lg" %></p>
   </div>
 <% end %>

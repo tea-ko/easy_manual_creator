@@ -1,6 +1,28 @@
-<h1>Editing Title</h1>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url(<%= asset_path "book.png" %>)">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>タイトルを編集</h1>
+          <span class="subheading"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @title %> |
-<%= link_to 'Back', titles_path %>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="post-preview">
+        <h2 class="post-title">
+          <p id="notice"><%= notice %></p>
+            <%= render 'form' %>
+            <h4><%= link_to '◀戻る', @title %></h4>
+      </div>
+    </div>
+  </div>
+</div>

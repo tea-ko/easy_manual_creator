@@ -1,26 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Id:</strong>
-  <%= @user.id %>
-</p>
-
-<p>
-  <strong>Login:</strong>
-  <%= @user.login_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url(<%= asset_path "book.png" %>)">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h2><%= @user.name %>さんの登録情報</h2>
+          <span class="subheading"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
 
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="post-preview">
+        <h2 class="post-title">
+          <p id="notice"><%= notice %></p>
+          <p>名前：<%= @user.name %></p>
+          <p>Email：<%= @user.email %></p>
+          <p>登録日：<%= @user.created_at %></p>
+      </div>
+    </div>
+  </div>
+</div>

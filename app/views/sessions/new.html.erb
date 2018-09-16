@@ -1,11 +1,31 @@
-<h1>ログイン</h1>
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url(<%= asset_path "book.png" %>)">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>ログイン</h1>
+          <span class="subheading">マニュアルの編集をする前に<br>ログインしてください。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit "ログイン" %>
-<% end %>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="post-preview">
+        <h2 class="post-title">
+          <p id="notice"><%= notice %></p>
+          <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+            <p><%= f.label :email %>：　<%= f.email_field :email %></p>
+            <p><%= f.label :password %>：　<%= f.password_field :password %></p>
+            <p><%= f.submit "ログイン", class: "btn btn-warning btn-lg" %></p>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

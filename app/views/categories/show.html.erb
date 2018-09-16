@@ -1,15 +1,29 @@
-<div class="container">
-  <p id="notice"><%= notice %></p>
-  <div class="blog-text">
-    <p><%= @category.name %></p>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url(<%= asset_path "book.png" %>)">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1><%= @category.name %></h1>
+        </div>
+      </div>
+    </div>
   </div>
-  <hr>
-  <div id="titles_area">
-    <%= render partial: 'titles/index', locals: { titles: @titles, category: @category } %>
-  </div> 
-  <hr>
-  <%= render partial: 'titles/form', locals: { title: @title, category: @category } %>
+</header>
 
-  <%= link_to 'カテゴリ名を編集', edit_category_path(@category) %> |
-  <%= link_to 'カテゴリ一覧へ戻る', categories_path %>
-</div> 
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="post-preview">
+        <p id="notice"><%= notice %></p>
+        <%= render partial: 'titles/index', locals: { titles: @titles, category: @category } %>
+        <hr>
+        <%= render partial: 'titles/form', locals: { title: @title, category: @category } %>
+        <hr>
+        <h4><%= link_to '◀︎カテゴリ一覧へ戻る', categories_path %></h4>
+      </div>
+    </div>
+  </div>
+</div>
