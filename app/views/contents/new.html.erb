@@ -1,5 +1,28 @@
-<h1>New Content</h1>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url(<%= asset_path "book.png" %>)">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Error!</h1>
+          <span class="subheading"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-<%= render 'form', content: @content %>
-
-<%= link_to 'Back', contents_path %>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="post-preview">
+        <h4 class="post-title">
+            <%= render 'form', content: @content %>
+            <hr>
+            <%= link_to '◀︎説明ページへ戻る', :back %>
+      </div>
+    </div>
+  </div>
+</div>

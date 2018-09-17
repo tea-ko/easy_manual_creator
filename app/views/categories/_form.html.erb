@@ -1,7 +1,7 @@
 <%= form_with(model: category, local: true) do |form| %>
   <% if category.errors.any? %>
     <div id="error_explanation">
-      <h2><%= @category.errors.count %>件のエラーがあります。</h2>
+      <h2 class="alert alert-danger"><%= @category.errors.count %>件のエラーがあります。</h2>
       <ul>
       <% category.errors.full_messages.each do |message| %>
         <li><%= message %></li>
