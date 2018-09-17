@@ -23,7 +23,7 @@
           <p id="notice"><%= notice %></p>
           <p>名前：<%= @user.name %></p>
           <p>Email：<%= @user.email %></p>
-          <p>登録日：<%= @user.created_at %></p>
+          <p>登録日：<%= @user.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
       </div>
     </div>
   </div>
