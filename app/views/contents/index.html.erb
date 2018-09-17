@@ -1,3 +1,25 @@
-<p id="notice"><%= notice %></p>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url(<%= asset_path "book.png" %>)">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1><%= notice %></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-<h3><%= link_to 'マニュアルページへ', categories_path %></h3>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="post-preview">
+        <h4 class="post-title">
+          <%= link_to '▶︎マニュアルのトップページへ', categories_path %>
+      </div>
+    </div>
+  </div>
+</div>
