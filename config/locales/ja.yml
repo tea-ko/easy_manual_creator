@@ -1,6 +1,26 @@
 ---
 ja:
   activerecord:
+    models:
+      category: "カテゴリー"
+      content: "手順説明"
+      title: "タイトル"
+      user: "ユーザー"
+    attributes:
+      category:
+        name: "カテゴリ名"
+      content:
+        content: "本文"
+        image: "画像"
+      title:
+        title: "タイトル名"
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        current_password: "現在のパスワード"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "ログインを記憶"
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
