@@ -21,8 +21,8 @@
         <h2 class="post-title">
           <p id="notice"><%= notice %></p>
           <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-            <p><%= f.label :email %>：　<%= f.email_field :email %></p>
-            <p><%= f.label :password %>：　<%= f.password_field :password %></p>
+            <p><%= f.label "メールアドレス" %>：　<%= f.email_field :email %></p>
+            <p><%= f.label "パスワード" %>：　<%= f.password_field :password %></p>
             <p><%= f.submit "ログイン", class: "btn btn-warning btn-lg" %></p>
           <% end %>
       </div>
