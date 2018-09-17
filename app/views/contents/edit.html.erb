@@ -19,6 +19,10 @@
     <div class="col-lg-8 col-md-10 mx-auto">
       <div class="post-preview">
         <%= render 'form', content: @content %>
+        <hr>
+        <button class="btn btn-primary float-right">
+          <%= link_to '削除', @content, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+        </button>
         <h4 class="post-title">
         <%= link_to '◀︎戻る', :back %>
       </div>
