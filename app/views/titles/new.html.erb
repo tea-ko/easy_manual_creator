@@ -1,5 +1,29 @@
-<h1>新しいタイトルを作成する</h1>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url(<%= asset_path "book.png" %>)">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>タイトルの作成</h1>
+          <span class="subheading"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-<%= render 'form', title: @title %>
-
-<%= link_to 'タイトル一覧へ戻る', titles_path %>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="post-preview">
+        <h4 class="post-title">
+          ▼新しいカテゴリ名を登録する
+            <%= render 'form', title: @title %>
+            <hr>
+            <%= link_to '◀︎タイトル一覧へ戻る',:back %>
+      </div>
+    </div>
+  </div>
+</div>
