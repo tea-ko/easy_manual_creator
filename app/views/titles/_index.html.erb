@@ -1,9 +1,8 @@
 <% titles.each do |title| %>
   <% if title.id.present? %>
     <h3 class="post-subtitle">
-      <%= title.title %>
+      <%= link_to(title.title, title) %>
     </h3>
-    <%= link_to '詳細', title %>
     <%= link_to '編集', edit_title_path(title) %>
     <button class="btn btn-primary float-right">
       <%= link_to '削除', title, method: :delete, data: { confirm: 'このタイトルを削除すると中の説明文と画像も全て削除されます。削除してよろしいですか？' } %>

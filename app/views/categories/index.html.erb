@@ -21,9 +21,8 @@
       <div class="post-preview">
           <% @categories.each do |category| %>
             <h3 class="post-subtitle">
-              <%= category.name %>
+              <%= link_to(category.name, category) %>
             </h3>
-            <%= link_to '詳細', category %> |
             <%= link_to '編集', edit_category_path(category) %>
             <button class="btn btn-primary float-right">
               <%= link_to '削除', category, method: :delete, data: { confirm: 'カテゴリと中のマニュアルが全て削除されます。本当に削除してよろしいですか？' } %>
