@@ -1,7 +1,7 @@
 <% titles.each do |title| %>
   <% if title.id.present? %>
     <h3 class="post-subtitle">
-      <%= link_to(title.title, title) %>
+      <%= link_to title.title, title %>
     </h3>
     <%= link_to '編集', edit_title_path(title) %>
     <button class="btn btn-primary float-right">

@@ -11,6 +11,5 @@ class User < ApplicationRecord
   
   #has_many :contents
   #has_many :titles
-  #has_many :tags
 
 end

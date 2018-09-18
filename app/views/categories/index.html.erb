@@ -21,7 +21,7 @@
       <div class="post-preview">
           <% @categories.each do |category| %>
             <h3 class="post-subtitle">
-              <%= link_to(category.name, category) %>
+              <%= link_to category.name, category %>
             </h3>
             <%= link_to '編集', edit_category_path(category) %>
             <button class="btn btn-primary float-right">
@@ -29,8 +29,7 @@
             </button>
             <hr>
           <% end %>
-
-      <h5><%= link_to '▶︎新しいカテゴリを作成する', new_category_path %></h5>
+      <h4><%= link_to '▶︎新しいカテゴリを作成する', new_category_path %></h4>
     </div>
   </div>
 </div>
