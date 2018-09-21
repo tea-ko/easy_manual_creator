@@ -46,17 +46,14 @@ class TitlesController < ApplicationController
     @title.destroy
     respond_to do |format|
       format.html { redirect_to titles_url, notice: 'タイトルと中の説明文が削除されました' }
-      format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_title
       @title = Title.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def title_params
       params.require(:title).permit(:id, :title, :category_id)
     end

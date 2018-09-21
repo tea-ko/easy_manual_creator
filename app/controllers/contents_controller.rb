@@ -45,10 +45,8 @@ class ContentsController < ApplicationController
     respond_to do |format|
       if @content.update(content_params)
         format.html { redirect_to @title, notice: '手順の説明が更新されました' }
-        format.json { render :show, status: :ok, location: @content }
       else
         format.html { render :edit }
-        format.json { render json: @title.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +55,6 @@ class ContentsController < ApplicationController
     @content.destroy
     respond_to do |format|
       format.html { redirect_to contents_url, notice: '説明文と画像が削除されました。' }
-      format.json { head :no_content }
     end
   end
 
