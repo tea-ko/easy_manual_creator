@@ -1,25 +1,11 @@
 # README
+WEBサイト作成のスキルがなくても、誰でも簡単にブログを書く感覚でWEBマニュアル作成ができるツールです。
+新規業務の立ち上げ期や小規模業務でマニュアル作成などに時間と費用がかけられない場合に、「自前で」、「業務をやりながら」、「みんなで」作成できます。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Requirement
+* Ruby version 2.4.0
+* Rails version 5.2.1
+* Bootstrap 3
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # easy_manual_creator
+https://easy-manual-creator.herokuapp.com/
